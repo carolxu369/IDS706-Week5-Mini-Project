@@ -1,2 +1,1 @@
 mysql-connector-python==8.0.26
-pylint==2.11.1

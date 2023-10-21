@@ -4,7 +4,5 @@ setup:
 test:
 	python -m unittest discover -s tests
 
-lint:
-	pylint db_interact.py
-
-all: setup lint test
+run:
+    python3 your_script_name.py

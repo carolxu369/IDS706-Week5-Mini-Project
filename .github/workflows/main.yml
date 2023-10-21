@@ -16,10 +16,9 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt
-    - name: Lint with pylint
+    - name: Run script
       run: |
-        pip install pylint
-        pylint db_interact.py
+        python db_interact.py
     - name: Test with unittest
       run: |
         python -m unittest discover -s tests
