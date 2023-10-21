@@ -1,0 +1,12 @@
+{
+    "name": "Python 3",
+    "build": {
+      "dockerfile": "Dockerfile",
+      "context": ".."
+    },
+    "runArgs": ["-v", "/var/run/docker.sock:/var/run/docker.sock"],
+    "settings": {
+      "terminal.integrated.shell.linux": "/bin/bash"
+    },
+    "extensions": ["ms-python.python"]
+  }  
