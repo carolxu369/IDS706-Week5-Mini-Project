@@ -50,6 +50,18 @@ def get_all_data(connection, table_name):
     cursor.execute(query)
     return cursor.fetchall()
 
+def get_users_older_than(connection, age):
+    cursor = connection.cursor()
+    query = f"SELECT * FROM users WHERE age > {age}"
+    cursor.execute(query)
+    return cursor.fetchall()
+
+def count_users_by_age(connection):
+    cursor = connection.cursor()
+    query = "SELECT age, COUNT(*) as user_count FROM users GROUP BY age"
+    cursor.execute(query)
+    return cursor.fetchall()
+
 def main():
     # connection
     connection = create_connection()
@@ -90,6 +102,12 @@ def main():
     DELETE FROM users WHERE name = 'Milker';
     """
     execute_query(connection, delete_query)
+
+    older_users = get_users_older_than(connection, 21)
+    print("Users older than 21:", older_users)
+
+    users_age_count = count_users_by_age(connection)
+    print("Count of users by age:", users_age_count)
 
     # Close the connection
     close_connection(connection)
